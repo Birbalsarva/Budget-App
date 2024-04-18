@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: budget-app-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: budget-app-web
+  template:
+    metadata:
+      labels:
+        app: budget-app-web
+    spec:
+      containers:
+        - name: web
+          image: birbalsarva/budget-app_web
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: app-volume
+              mountPath: /app
+      volumes:
+        - name: app-volume
+          emptyDir: {}
