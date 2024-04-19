@@ -1,6 +1,6 @@
 services:
   web:
-    image: birbalsarva/budget-app_web
+    image: birbalsarva/budget-app_web:latest
     ports:
       - "3000:3000"
     volumes:
